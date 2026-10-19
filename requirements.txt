@@ -1,0 +1,6 @@
+
+pandas
+numpy
+scikit-learn
+owlready2
+pytest

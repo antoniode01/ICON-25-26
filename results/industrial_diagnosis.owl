@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://example.org/icon/industrial-diagnosis.owl"
+         xmlns="https://example.org/icon/industrial-diagnosis.owl#">
+
+<owl:Ontology rdf:about="https://example.org/icon/industrial-diagnosis.owl"/>
+
+<owl:ObjectProperty rdf:about="#has_component">
+  <rdfs:domain rdf:resource="#Machine"/>
+  <rdfs:range rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">ha componente</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_sensor">
+  <rdfs:domain rdf:resource="#Machine"/>
+  <rdfs:range rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">ha sensore</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#monitors_component">
+  <rdfs:domain rdf:resource="#Sensor"/>
+  <rdfs:range rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">monitora componente</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#observes_symptom">
+  <rdfs:domain rdf:resource="#Observation"/>
+  <rdfs:range rdf:resource="#Symptom"/>
+  <rdfs:label xml:lang="it">osserva sintomo</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#concerns_machine">
+  <rdfs:domain rdf:resource="#Observation"/>
+  <rdfs:range rdf:resource="#Machine"/>
+  <rdfs:label xml:lang="it">riguarda macchina</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#indicates_fault">
+  <rdfs:domain rdf:resource="#Symptom"/>
+  <rdfs:range rdf:resource="#FaultFamily"/>
+  <rdfs:label xml:lang="it">indica guasto</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#affects_component">
+  <rdfs:domain rdf:resource="#FaultFamily"/>
+  <rdfs:range rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">interessa componente</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_observation">
+  <rdfs:domain rdf:resource="#Machine"/>
+  <rdfs:range rdf:resource="#Observation"/>
+  <rdfs:label xml:lang="it">ha osservazione</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#compatible_with_machine">
+  <rdfs:domain rdf:resource="#FaultFamily"/>
+  <rdfs:range rdf:resource="#MachineType"/>
+  <rdfs:label xml:lang="it">compatibile con macchina</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#observation_state">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Observation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label xml:lang="it">stato dell'osservazione</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#measurement_value">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Observation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  <rdfs:label xml:lang="it">valore della misurazione</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#measurement_unit">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Observation"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label xml:lang="it">unità di misura</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Machine">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Macchina</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Component">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Componente</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Sensor">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Sensore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Observation">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Osservazione</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Symptom">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Sintomo</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Fault">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="it">Guasto</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FaultFamily">
+  <rdfs:subClassOf rdf:resource="#Fault"/>
+  <rdfs:label xml:lang="it">Famiglia di guasto</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ThermalFault">
+  <rdfs:subClassOf rdf:resource="#FaultFamily"/>
+  <rdfs:label xml:lang="it">Guasto termico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MechanicalFault">
+  <rdfs:subClassOf rdf:resource="#FaultFamily"/>
+  <rdfs:label xml:lang="it">Guasto meccanico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ElectricalFault">
+  <rdfs:subClassOf rdf:resource="#FaultFamily"/>
+  <rdfs:label xml:lang="it">Guasto elettrico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#HydraulicFault">
+  <rdfs:subClassOf rdf:resource="#FaultFamily"/>
+  <rdfs:label xml:lang="it">Guasto idraulico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MachineType">
+  <rdfs:subClassOf rdf:resource="#Machine"/>
+  <rdfs:label xml:lang="it">Tipo di macchina</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ElectricMotor">
+  <rdfs:subClassOf rdf:resource="#MachineType"/>
+  <rdfs:label xml:lang="it">Motore elettrico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#IndustrialPump">
+  <rdfs:subClassOf rdf:resource="#MachineType"/>
+  <rdfs:label xml:lang="it">Pompa industriale</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Compressor">
+  <rdfs:subClassOf rdf:resource="#MachineType"/>
+  <rdfs:label xml:lang="it">Compressore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ConveyorBelt">
+  <rdfs:subClassOf rdf:resource="#MachineType"/>
+  <rdfs:label xml:lang="it">Nastro trasportatore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TemperatureSensor">
+  <rdfs:subClassOf rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">Sensore di temperatura</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CurrentSensor">
+  <rdfs:subClassOf rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">Sensore di corrente</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#VibrationSensor">
+  <rdfs:subClassOf rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">Sensore di vibrazione</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PressureSensor">
+  <rdfs:subClassOf rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">Sensore di pressione</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FlowSensor">
+  <rdfs:subClassOf rdf:resource="#Sensor"/>
+  <rdfs:label xml:lang="it">Sensore di portata</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ThermalSymptom">
+  <rdfs:subClassOf rdf:resource="#Symptom"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Symptom"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#indicates_fault"/>
+          <owl:someValuesFrom rdf:resource="#ThermalFault"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label xml:lang="it">Sintomo termico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MechanicalSymptom">
+  <rdfs:subClassOf rdf:resource="#Symptom"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Symptom"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#indicates_fault"/>
+          <owl:someValuesFrom rdf:resource="#MechanicalFault"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label xml:lang="it">Sintomo meccanico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ElectricalSymptom">
+  <rdfs:subClassOf rdf:resource="#Symptom"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Symptom"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#indicates_fault"/>
+          <owl:someValuesFrom rdf:resource="#ElectricalFault"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label xml:lang="it">Sintomo elettrico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#HydraulicSymptom">
+  <rdfs:subClassOf rdf:resource="#Symptom"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Symptom"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#indicates_fault"/>
+          <owl:someValuesFrom rdf:resource="#HydraulicFault"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:label xml:lang="it">Sintomo idraulico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MotorComponent">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Componente motore</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Bearing">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Cuscinetto</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CoolingSystem">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Sistema di raffreddamento</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ElectricalSupply">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Alimentazione elettrica</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#HydraulicCircuit">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Circuito idraulico</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#BeltDrive">
+  <rdfs:subClassOf rdf:resource="#Component"/>
+  <rdfs:label xml:lang="it">Trasmissione a cinghia</rdfs:label>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#thermal_fault">
+  <rdf:type rdf:resource="#ThermalFault"/>
+  <affects_component rdf:resource="#cooling_system"/>
+  <affects_component rdf:resource="#motor_component"/>
+  <compatible_with_machine rdf:resource="#conveyor_belt"/>
+  <compatible_with_machine rdf:resource="#electric_motor"/>
+  <compatible_with_machine rdf:resource="#compressor"/>
+  <compatible_with_machine rdf:resource="#industrial_pump"/>
+  <rdfs:label xml:lang="it">Guasto termico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#mechanical_fault">
+  <rdf:type rdf:resource="#MechanicalFault"/>
+  <affects_component rdf:resource="#bearing"/>
+  <affects_component rdf:resource="#motor_component"/>
+  <compatible_with_machine rdf:resource="#conveyor_belt"/>
+  <compatible_with_machine rdf:resource="#electric_motor"/>
+  <compatible_with_machine rdf:resource="#compressor"/>
+  <compatible_with_machine rdf:resource="#industrial_pump"/>
+  <rdfs:label xml:lang="it">Guasto meccanico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#electrical_fault">
+  <rdf:type rdf:resource="#ElectricalFault"/>
+  <affects_component rdf:resource="#electrical_supply"/>
+  <affects_component rdf:resource="#motor_component"/>
+  <compatible_with_machine rdf:resource="#conveyor_belt"/>
+  <compatible_with_machine rdf:resource="#electric_motor"/>
+  <compatible_with_machine rdf:resource="#compressor"/>
+  <compatible_with_machine rdf:resource="#industrial_pump"/>
+  <rdfs:label xml:lang="it">Guasto elettrico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#hydraulic_fault">
+  <rdf:type rdf:resource="#HydraulicFault"/>
+  <affects_component rdf:resource="#hydraulic_circuit"/>
+  <compatible_with_machine rdf:resource="#compressor"/>
+  <compatible_with_machine rdf:resource="#industrial_pump"/>
+  <rdfs:label xml:lang="it">Guasto idraulico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#electric_motor">
+  <rdf:type rdf:resource="#ElectricMotor"/>
+  <has_component rdf:resource="#cooling_system"/>
+  <has_component rdf:resource="#bearing"/>
+  <has_component rdf:resource="#electrical_supply"/>
+  <has_component rdf:resource="#motor_component"/>
+  <has_sensor rdf:resource="#current_sensor"/>
+  <has_sensor rdf:resource="#temperature_sensor"/>
+  <has_sensor rdf:resource="#vibration_sensor"/>
+  <rdfs:label xml:lang="it">Motore elettrico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#industrial_pump">
+  <rdf:type rdf:resource="#IndustrialPump"/>
+  <has_component rdf:resource="#hydraulic_circuit"/>
+  <has_component rdf:resource="#bearing"/>
+  <has_component rdf:resource="#cooling_system"/>
+  <has_component rdf:resource="#electrical_supply"/>
+  <has_component rdf:resource="#motor_component"/>
+  <has_sensor rdf:resource="#current_sensor"/>
+  <has_sensor rdf:resource="#temperature_sensor"/>
+  <has_sensor rdf:resource="#vibration_sensor"/>
+  <has_sensor rdf:resource="#flow_sensor"/>
+  <has_sensor rdf:resource="#pressure_sensor"/>
+  <rdfs:label xml:lang="it">Pompa industriale</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#compressor">
+  <rdf:type rdf:resource="#Compressor"/>
+  <has_component rdf:resource="#hydraulic_circuit"/>
+  <has_component rdf:resource="#bearing"/>
+  <has_component rdf:resource="#cooling_system"/>
+  <has_component rdf:resource="#electrical_supply"/>
+  <has_component rdf:resource="#motor_component"/>
+  <has_sensor rdf:resource="#current_sensor"/>
+  <has_sensor rdf:resource="#temperature_sensor"/>
+  <has_sensor rdf:resource="#vibration_sensor"/>
+  <has_sensor rdf:resource="#flow_sensor"/>
+  <has_sensor rdf:resource="#pressure_sensor"/>
+  <rdfs:label xml:lang="it">Compressore</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#conveyor_belt">
+  <rdf:type rdf:resource="#ConveyorBelt"/>
+  <has_component rdf:resource="#bearing"/>
+  <has_component rdf:resource="#electrical_supply"/>
+  <has_component rdf:resource="#motor_component"/>
+  <has_component rdf:resource="#belt_drive"/>
+  <has_sensor rdf:resource="#current_sensor"/>
+  <has_sensor rdf:resource="#temperature_sensor"/>
+  <has_sensor rdf:resource="#vibration_sensor"/>
+  <rdfs:label xml:lang="it">Nastro trasportatore</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#motor_component">
+  <rdf:type rdf:resource="#MotorComponent"/>
+  <rdfs:label xml:lang="it">Componente motore</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#bearing">
+  <rdf:type rdf:resource="#Bearing"/>
+  <rdfs:label xml:lang="it">Cuscinetto</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cooling_system">
+  <rdf:type rdf:resource="#CoolingSystem"/>
+  <rdfs:label xml:lang="it">Sistema di raffreddamento</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#electrical_supply">
+  <rdf:type rdf:resource="#ElectricalSupply"/>
+  <rdfs:label xml:lang="it">Alimentazione elettrica</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#hydraulic_circuit">
+  <rdf:type rdf:resource="#HydraulicCircuit"/>
+  <rdfs:label xml:lang="it">Circuito idraulico</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#belt_drive">
+  <rdf:type rdf:resource="#BeltDrive"/>
+  <rdfs:label xml:lang="it">Trasmissione a cinghia</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#temperature_sensor">
+  <rdf:type rdf:resource="#TemperatureSensor"/>
+  <monitors_component rdf:resource="#cooling_system"/>
+  <monitors_component rdf:resource="#motor_component"/>
+  <rdfs:label xml:lang="it">Sensore di temperatura</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#current_sensor">
+  <rdf:type rdf:resource="#CurrentSensor"/>
+  <monitors_component rdf:resource="#electrical_supply"/>
+  <monitors_component rdf:resource="#motor_component"/>
+  <rdfs:label xml:lang="it">Sensore di corrente</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#vibration_sensor">
+  <rdf:type rdf:resource="#VibrationSensor"/>
+  <monitors_component rdf:resource="#bearing"/>
+  <monitors_component rdf:resource="#motor_component"/>
+  <monitors_component rdf:resource="#belt_drive"/>
+  <rdfs:label xml:lang="it">Sensore di vibrazione</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pressure_sensor">
+  <rdf:type rdf:resource="#PressureSensor"/>
+  <monitors_component rdf:resource="#hydraulic_circuit"/>
+  <rdfs:label xml:lang="it">Sensore di pressione</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#flow_sensor">
+  <rdf:type rdf:resource="#FlowSensor"/>
+  <monitors_component rdf:resource="#hydraulic_circuit"/>
+  <rdfs:label xml:lang="it">Sensore di portata</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#overheating">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#electrical_fault"/>
+  <indicates_fault rdf:resource="#mechanical_fault"/>
+  <indicates_fault rdf:resource="#thermal_fault"/>
+  <rdf:type rdf:resource="#ElectricalSymptom"/>
+  <rdf:type rdf:resource="#MechanicalSymptom"/>
+  <rdf:type rdf:resource="#ThermalSymptom"/>
+  <rdfs:label xml:lang="it">Surriscaldamento</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#abnormal_vibration">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#mechanical_fault"/>
+  <indicates_fault rdf:resource="#hydraulic_fault"/>
+  <indicates_fault rdf:resource="#thermal_fault"/>
+  <rdf:type rdf:resource="#MechanicalSymptom"/>
+  <rdf:type rdf:resource="#HydraulicSymptom"/>
+  <rdf:type rdf:resource="#ThermalSymptom"/>
+  <rdfs:label xml:lang="it">Vibrazione anomala</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#current_anomaly">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#electrical_fault"/>
+  <indicates_fault rdf:resource="#mechanical_fault"/>
+  <indicates_fault rdf:resource="#thermal_fault"/>
+  <rdf:type rdf:resource="#ElectricalSymptom"/>
+  <rdf:type rdf:resource="#MechanicalSymptom"/>
+  <rdf:type rdf:resource="#ThermalSymptom"/>
+  <rdfs:label xml:lang="it">Anomalia della corrente</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pressure_anomaly">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#hydraulic_fault"/>
+  <rdf:type rdf:resource="#HydraulicSymptom"/>
+  <rdfs:label xml:lang="it">Anomalia della pressione</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#flow_anomaly">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#hydraulic_fault"/>
+  <rdf:type rdf:resource="#HydraulicSymptom"/>
+  <rdfs:label xml:lang="it">Anomalia della portata</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#unusual_noise">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#electrical_fault"/>
+  <indicates_fault rdf:resource="#mechanical_fault"/>
+  <indicates_fault rdf:resource="#hydraulic_fault"/>
+  <rdf:type rdf:resource="#ElectricalSymptom"/>
+  <rdf:type rdf:resource="#MechanicalSymptom"/>
+  <rdf:type rdf:resource="#HydraulicSymptom"/>
+  <rdfs:label xml:lang="it">Rumore anomalo</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#reduced_performance">
+  <rdf:type rdf:resource="#Symptom"/>
+  <indicates_fault rdf:resource="#electrical_fault"/>
+  <indicates_fault rdf:resource="#mechanical_fault"/>
+  <indicates_fault rdf:resource="#hydraulic_fault"/>
+  <indicates_fault rdf:resource="#thermal_fault"/>
+  <rdf:type rdf:resource="#ElectricalSymptom"/>
+  <rdf:type rdf:resource="#MechanicalSymptom"/>
+  <rdf:type rdf:resource="#HydraulicSymptom"/>
+  <rdf:type rdf:resource="#ThermalSymptom"/>
+  <rdfs:label xml:lang="it">Prestazioni ridotte</rdfs:label>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
