@@ -115,13 +115,12 @@ ICON_Industrial_Diagnosis/
 └── README.md
 ```
 
-## Limiti e interpretazione
+## Documentazione
 
-1. Il dataset è sintetico e deriva da ipotesi probabilistiche e regole del generatore; non sostituisce dati raccolti su macchinari reali.
-2. L'ontologia codifica una conoscenza di dominio semplificata a scopo didattico.
-3. Il supporto della diagnosi simbolica è un conteggio di evidenze favorevoli, **non una probabilità** né una stima calibrata del rischio.
-4. Le prestazioni dipendono dal generatore, dalle feature e dai modelli selezionati e non vanno generalizzate direttamente a contesti industriali reali.
-5. L'arricchimento semantico può migliorare la rappresentazione esplicita e la spiegabilità anche quando non aumenta l'accuratezza.
+Per una descrizione dettagliata dell'architettura,
+dell'ontologia, del ragionamento semantico e degli
+esperimenti, consulta la
+[relazione tecnica del progetto](docs/Relazione_tecnica_ICON_Industrial_Diagnosis.pdf).
 
 ## Obiettivo didattico
 
