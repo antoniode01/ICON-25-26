@@ -120,7 +120,7 @@ ICON_Industrial_Diagnosis/
 Per una descrizione dettagliata dell'architettura,
 dell'ontologia, del ragionamento semantico e degli
 esperimenti, consulta la
-[relazione tecnica del progetto](docs/Relazione_tecnica_ICON_Industrial_Diagnosis.pdf).
+[relazione tecnica del progetto](docs/Documentazione_ICON_Industrial_Diagnosis.pdf).
 
 ## Obiettivo didattico
 
