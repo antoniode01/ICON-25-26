@@ -78,7 +78,7 @@ Risultati registrati in `results/comparison_results.csv`:
 | MLP | Base | 0,9139 | 0,9140 |
 | MLP | OntoBK | 0,9146 | 0,9144 |
 
-L'arricchimento OntoBK non migliora automaticamente tutti i modelli: nei risultati inclusi le prestazioni sono inferiori per Random Forest e SVM, mentre per MLP la differenza è minima. Il risultato va interpretato e discusso, non nascosto: rappresentare più conoscenza non garantisce da solo una maggiore accuratezza predittiva.
+L'arricchimento OntoBK non migliora automaticamente tutti i modelli: nei risultati inclusi le prestazioni sono inferiori per Random Forest e SVM, mentre per MLP la differenza è minima. Il risultato va interpretato e discusso: rappresentare più conoscenza non garantisce da solo una maggiore accuratezza predittiva.
 
 Le matrici di confusione aggregano le predizioni out-of-fold delle tre ripetizioni: ogni matrice contiene complessivamente 9.000 predizioni (3.000 casi × 3 ripetizioni).
 
